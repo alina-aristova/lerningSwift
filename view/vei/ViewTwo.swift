@@ -11,14 +11,29 @@ import UIKit
 class ViewTwo: UIViewController {
 
     var name: String = ""
+    var FirstName: String = ""
+    var secondName: String = ""
     @IBOutlet weak var lableTwo: UILabel!
-    override func viewDidLoad() {
+    override func viewDidLoad(){
         super.viewDidLoad()
-        lableTwo.text = name
+        assignbackground()
+        lableTwo.numberOfLines = 5
+        let resultName = FirstName + " " + name + " " + secondName
+        lableTwo.text = "Здравствуйте, \(resultName)"
         // Do any additional setup after loading the view.
     }
     
-
+    func assignbackground(){
+        let background = UIImage(named: "/Users/acase/Desktop/view/vei/image.jpeg")
+        var imageView : UIImageView!
+        imageView = UIImageView(frame: view.bounds)
+        imageView.contentMode =  UIView.ContentMode.scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.image = background
+        imageView.center = view.center
+        view.addSubview(imageView)
+        self.view.sendSubviewToBack(imageView)
+       }
     /*
     // MARK: - Navigation
 
